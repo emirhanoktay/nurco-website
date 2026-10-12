@@ -50,9 +50,11 @@
   fill: var(--hero-orange);
 }
 
-.waveRibbon {
-  /* Morph the ribbon contours in place; never translate or zoom the background. */
-  animation: waveRipple 3.2s ease-in-out infinite alternate;
+.waveRotation {
+  /* CSS path morphing is not rendered by Safari. Rotate only the SVG artwork. */
+  transform-box: view-box;
+  transform-origin: 0 0;
+  animation: waveOrbit 180s linear infinite;
 }
 
 .hero :global(.hero-sticker) {
@@ -171,7 +173,7 @@
   color: var(--hero-pink);
 }
 
-.hero:has(.artwork[data-motion-paused="true"]) .waveRibbon,
+.hero:has(.artwork[data-motion-paused="true"]) .waveRotation,
 .artwork[data-motion-paused="true"] .waffleHighlights,
 .artwork[data-motion-paused="true"] .kumpirHighlights,
 .artwork[data-motion-paused="true"] .twinkle {
@@ -183,12 +185,12 @@
   z-index: 2;
 }
 
-@keyframes waveRipple {
+@keyframes waveOrbit {
   from {
-    d: var(--wave-rest);
+    transform: rotate(0deg);
   }
   to {
-    d: var(--wave-bend);
+    transform: rotate(360deg);
   }
 }
 
@@ -267,7 +269,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .waveRibbon,
+  .waveRotation,
   .waffleHighlights,
   .kumpirHighlights,
   .twinkle {

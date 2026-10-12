@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import styles from "./hero.module.css";
 
 type Point = { x: number; y: number };
@@ -36,27 +35,26 @@ function makeRibbon(bend: number): string {
 }
 
 const ribbonRest = makeRibbon(-1);
-const ribbonBend = makeRibbon(1);
-const waveShapes = {
-  "--wave-rest": `path("${ribbonRest}")`,
-  "--wave-bend": `path("${ribbonBend}")`,
-} as CSSProperties;
 const rotations = Array.from({ length: 18 }, (_, index) => index * 20);
 
 export function HeroWaves() {
   return (
     <div className={styles.waveField} aria-hidden="true">
       <svg
-        viewBox="-1000 -600 1600 1200"
+        viewBox="0 0 1600 1200"
         preserveAspectRatio="xMidYMid slice"
         className={styles.wavePoster}
-        style={waveShapes}
       >
-        {rotations.map((angle) => (
-          <g key={angle} transform={`rotate(${angle})`}>
-            <path className={styles.waveRibbon} d={ribbonRest} />
+        {/* Keep the same origin and framing, with rotation in local coordinates. */}
+        <g transform="translate(1000 600)">
+          <g className={styles.waveRotation}>
+            {rotations.map((angle) => (
+              <g key={angle} transform={`rotate(${angle})`}>
+                <path d={ribbonRest} />
+              </g>
+            ))}
           </g>
-        ))}
+        </g>
       </svg>
     </div>
   );

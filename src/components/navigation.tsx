@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { Wordmark } from "./brand";
+import { Asterisk, Wordmark } from "./brand";
 
 const links = [
   { href: "#waffle", text: "Lezzetler" },
@@ -31,7 +31,9 @@ export function Navigation() {
       </a>
       <div className="announcement">
         <span>HAYATIN TATLI TARAFINDA BULUŞALIM</span>
-        <span aria-hidden="true">✳</span>
+        <span aria-hidden="true">
+          <Asterisk />
+        </span>
         <span>WAFFLE & KUMPİR</span>
       </div>
       <header className="site-header">

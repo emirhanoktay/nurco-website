@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { assets } from "@/lib/content";
-import { Wordmark } from "./brand";
+import { Asterisk, Wordmark } from "./brand";
 
 type ProductVisualProps = {
   product: "waffle" | "kumpir";
@@ -31,7 +31,9 @@ export function ProductVisual({
         <div className="concept-cup-brand" aria-hidden="true">
           <Wordmark />
           <span>biraz mutluluk.</span>
-          <span className="cup-flower">✳</span>
+          <span className="cup-flower">
+            <Asterisk />
+          </span>
         </div>
       )}
     </div>

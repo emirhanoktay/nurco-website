@@ -1,5 +1,5 @@
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import { ConceptLabel, DoodleArrow, Flower, Smile } from "./brand";
+import { Asterisk, ConceptLabel, DoodleArrow, Flower, Smile } from "./brand";
 import { ProductVisual } from "./product-visual";
 import { HeroArtwork } from "./hero-artwork";
 import { HeroWaves, ProductHighlights, ProductRays } from "./hero-waves";
@@ -13,8 +13,10 @@ export function Hero() {
       <div className="hero-inner page-width">
         <div className="hero-copy">
           <p className="eyebrow">
-            <span className="tiny-spark">✳</span> WAFFLE, KUMPİR & BOLCA
-            MUTLULUK
+            <span className="tiny-spark">
+              <Asterisk />
+            </span>{" "}
+            WAFFLE, KUMPİR & BOLCA MUTLULUK
           </p>
           <h1 id="hero-title">
             Mutluluk

@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { ConceptLabel, DoodleArrow, Flower } from "./brand";
+import { Asterisk, ConceptLabel, DoodleArrow, Flower } from "./brand";
 import { ProductVisual } from "./product-visual";
 
 export function WaffleHighlight() {
@@ -92,7 +92,7 @@ export function KumpirHighlight() {
             <strong>OH!</strong>
           </span>
           <span className="kumpir-spark" aria-hidden="true">
-            ✳
+            <Asterisk />
           </span>
           <ConceptLabel product="kumpir" />
         </div>

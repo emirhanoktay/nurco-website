@@ -1,11 +1,29 @@
 import { assets } from "@/lib/content";
 
+/** A graphic asterisk avoids platform-dependent emoji glyphs and colors. */
+export function Asterisk() {
+  return (
+    <svg
+      className="brand-asterisk"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5" />
+    </svg>
+  );
+}
+
 export function Wordmark({ className = "" }: { className?: string }) {
   return (
     <span className={`wordmark ${className}`}>
       nurço
       <span className="wordmark-dot" aria-hidden="true">
-        ✳
+        <Asterisk />
       </span>
     </span>
   );

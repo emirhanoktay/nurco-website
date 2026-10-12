@@ -170,6 +170,12 @@ details[id] {
   line-height: 1;
   transform: rotate(-6deg);
 }
+.brand-asterisk {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  vertical-align: -0.08em;
+}
 .wordmark-dot {
   display: inline-block;
   margin-left: 4px;
