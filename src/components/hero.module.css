@@ -1,0 +1,279 @@
+/* Hero-only palette and graphics. No shared site tokens or sections are changed. */
+.hero {
+  --hero-orange: #ff783f;
+  --hero-pink: #ffb1d4;
+  --hero-berry: #631d3d;
+  --hero-yellow: #ffe769;
+  position: relative;
+  isolation: isolate;
+  background: var(--hero-orange);
+  color: var(--hero-berry);
+}
+
+.hero :global(.hero-copy) {
+  z-index: 7;
+}
+
+.hero :global(.hero-description),
+.hero :global(.hero-actions .text-link),
+.hero :global(.hero-concept),
+.hero :global(.hero-handwritten) {
+  color: var(--hero-berry);
+}
+
+.hero :global(.hero-actions .button) {
+  background: var(--hero-berry);
+  color: var(--hero-pink);
+}
+
+.hero :global(.hero-actions .button:hover) {
+  background: #49142d;
+}
+
+.artwork {
+  position: relative;
+}
+
+.waveField {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--hero-pink);
+  overflow: hidden;
+}
+
+.wavePoster {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: var(--hero-orange);
+}
+
+.waveRibbon {
+  /* Morph the ribbon contours in place; never translate or zoom the background. */
+  animation: waveRipple 3.2s ease-in-out infinite alternate;
+}
+
+.hero :global(.hero-sticker) {
+  color: var(--hero-berry);
+  background: var(--hero-pink);
+  border-color: var(--hero-berry);
+  border-width: 2px;
+  box-shadow: 5px 7px 0 var(--hero-berry);
+  transform: rotate(11deg);
+}
+
+.hero :global(.hero-smile) {
+  color: var(--hero-berry);
+  width: 49px;
+  height: 49px;
+  top: 6%;
+  right: 29%;
+}
+
+.hero :global(.hero-flower) {
+  color: var(--hero-berry);
+  --flower-center: var(--hero-yellow);
+  width: 88px;
+  height: 88px;
+}
+
+.hero :global(.hero-handwritten) {
+  bottom: -3%;
+}
+
+.hero :global(.hero-concept) {
+  bottom: -42px;
+  padding: 4px 7px;
+  background: var(--hero-pink);
+  border-radius: 3px;
+}
+
+.productHighlights {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  stroke: var(--hero-yellow);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.productAnchor {
+  aspect-ratio: 1;
+}
+
+.productRays {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  stroke: var(--hero-yellow);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.waffleHighlights,
+.kumpirHighlights {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: highlightOutward 4.6s ease-in-out infinite;
+}
+
+.kumpirHighlights {
+  animation-delay: -2.3s;
+}
+
+.pinkHighlight {
+  stroke: var(--hero-berry);
+}
+
+.berryHighlight {
+  stroke: var(--hero-berry);
+}
+
+.twinkle {
+  stroke-width: 3;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: twinkle 4.6s ease-in-out infinite;
+}
+
+.motionToggle {
+  position: absolute;
+  z-index: 8;
+  right: 0;
+  bottom: -12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 7px 10px;
+  border: 1px solid var(--hero-berry);
+  border-radius: 99px;
+  background: var(--hero-pink);
+  color: var(--hero-berry);
+  font-size: 9px;
+}
+
+.motionToggle:hover {
+  background: var(--hero-berry);
+  color: var(--hero-pink);
+}
+
+.hero:has(.artwork[data-motion-paused="true"]) .waveRibbon,
+.artwork[data-motion-paused="true"] .waffleHighlights,
+.artwork[data-motion-paused="true"] .kumpirHighlights,
+.artwork[data-motion-paused="true"] .twinkle {
+  animation-play-state: paused;
+}
+
+.hero :global(.hero-baseline) {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes waveRipple {
+  from {
+    d: var(--wave-rest);
+  }
+  to {
+    d: var(--wave-bend);
+  }
+}
+
+@keyframes highlightOutward {
+  0%,
+  100% {
+    transform: scale(0.98);
+    opacity: 0.7;
+  }
+  55% {
+    transform: scale(1.035);
+    opacity: 1;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    transform: scale(0.85) rotate(-8deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(8deg);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .hero :global(.hero-flower) {
+    width: 66px;
+    height: 66px;
+  }
+  .hero :global(.hero-concept) {
+    bottom: -28px;
+  }
+  .motionToggle {
+    bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero :global(.hero-inner) {
+    padding-bottom: 51px;
+  }
+  .hero :global(.hero-sticker) {
+    box-shadow: 3px 4px 0 var(--hero-berry);
+    border-width: 2px;
+  }
+  .hero :global(.hero-smile) {
+    width: 34px;
+    height: 34px;
+    top: -1%;
+    right: 33%;
+  }
+  .hero :global(.hero-flower) {
+    width: 53px;
+    height: 53px;
+  }
+  .hero :global(.hero-handwritten) {
+    bottom: 3%;
+  }
+  .hero :global(.hero-concept) {
+    bottom: -48px;
+    font-size: 6px;
+  }
+  .motionToggle {
+    bottom: -21px;
+    font-size: 8px;
+    min-height: 32px;
+    padding: 6px 9px;
+  }
+  .productHighlights {
+    stroke-width: 5;
+  }
+  .productRays {
+    stroke-width: 1.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waveRibbon,
+  .waffleHighlights,
+  .kumpirHighlights,
+  .twinkle {
+    animation: none;
+  }
+  .motionToggle {
+    display: none;
+  }
+}

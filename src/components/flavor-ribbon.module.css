@@ -1,0 +1,26 @@
+.ribbon > .track {
+  justify-content: flex-start;
+  animation: marqueeRight 48s linear infinite;
+  will-change: transform;
+}
+
+.group {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+@keyframes marqueeRight {
+  from {
+    transform: translateX(calc(-100% / 6));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ribbon > .track {
+    animation: none;
+    transform: none;
+  }
+}
