@@ -1,57 +1,69 @@
-# Nurço — Waffle & Kumpir
+<p align="center">
+  <img src="docs/banner.png" alt="Nurço" width="100%">
+</p>
 
-Nurço ana sayfasının renkli, afiş estetiğinde yeniden tasarımı. Next.js App Router ve TypeScript. Bu yerel konsept sürümde ürün görselleri temsilidir; hikâye metni, resmî menü ve işletme bilgileri onay bekler.
+<p align="center">
+  <b>Nurço is a bright, poster-style website for a local waffle and kumpir shop.</b> It brings the brand's two products, a menu preview, branch details and an Instagram gallery into one fast, mobile-friendly page.
+</p>
 
-## Çalıştırma
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-C31F33?style=for-the-badge&logo=nextdotjs&logoColor=FFEB91">
+  <img src="https://img.shields.io/badge/React-C31F33?style=for-the-badge&logo=react&logoColor=FFEB91">
+  <img src="https://img.shields.io/badge/TypeScript-C31F33?style=for-the-badge&logo=typescript&logoColor=FFEB91">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-C31F33?style=for-the-badge&logo=tailwindcss&logoColor=FFEB91">
+  <img src="https://img.shields.io/badge/Vercel-C31F33?style=for-the-badge&logo=vercel&logoColor=FFEB91">
+</p>
 
-```sh
+<p align="center">
+  <a href="https://nurco-website.vercel.app/"><b>Live preview → nurco-website.vercel.app</b></a>
+</p>
+
+---
+
+## Features
+
+- **Poster-style sections** — A yellow brand opening, a pink waffle poster and a cobalt-and-yellow kumpir poster, each with its own colors and layout.
+- **Expandable menu preview** — Menu categories open and close in place, so the page stays short.
+- **Branches and contact** — An illustrated neighborhood map with address, hours and call / directions buttons.
+- **Instagram poster gallery** — A gallery that links out to the brand's Instagram.
+- **Responsive by design** — Layouts checked from 390 px phones up to 2560 px screens.
+- **Fast and private** — Fonts and images are served locally; no requests to Google Fonts or Instagram while the page loads.
+- **Easy to edit** — Brand colors live as tokens in one CSS block, and menu, branch and image data live in one typed content file.
+
+## Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/home-desktop.jpg" width="100%">
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/composition-refined-waffle-1440.jpg" width="48%">
+  <img src="docs/screenshots/composition-refined-kumpir-1440.jpg" width="48%">
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/home-mobile.jpg" width="200">
+</p>
+
+## How It Works
+
+A visitor lands on the yellow opening section with the tagline and two buttons, then scrolls through the waffle and kumpir posters, opens a menu category to see what is inside, and finds the branch with its address, hours and a call button. The page is a single Next.js App Router project written in TypeScript. Each section is its own component, text and menu data come from `src/lib/content.ts`, and colors come from the CSS tokens in `src/app/globals.css`. Product photos are placeholder visuals and the business details are marked as awaiting confirmation, so swapping in real photos and verified information only means editing the content file. The site is set to `noindex`, so search engines skip it.
+
+## Setup
+
+```bash
+git clone https://github.com/emirhanoktay/nurco-website.git
+cd nurco-website
 npm ci
 npm run dev -- --webpack
 ```
 
-Önizleme: http://127.0.0.1:3000
+Open http://127.0.0.1:3000. Use `npm run typecheck` to check types and `npm run build` for a production build.
 
-```sh
-npm run typecheck
-npm run build
-npm start
-```
+## Contact
 
-Üretim derlemesi ortamın Turbopack alt süreç sınırlaması nedeniyle Webpack kullanır. Fontlar ve görseller yerel sunulur; Google Fonts veya Instagram'a sayfa yüklenirken istek gönderilmez.
-
-## Bölümler
-
-1. Nurço markası ve iki ürünü bir araya getiren sarı açılış
-2. Pembe / kırmızı waffle afişi
-3. Kobalt / sarı kumpir afişi
-4. Açılır kategorilerle menü önizlemesi
-5. Temsili mahalle çizimi, şube ve iletişim
-6. Siyah beyaz işletme sahibi portresi ve sade “Biz Kimiz” alanı
-7. Instagram bağlantılı konsept poster galerisi
-8. Buluşma çağrısı ve alt menü
-
-## Düzenleme noktaları
-
-- `src/app/globals.css`: marka renkleri ve boşluk token'ları `:root` içinde; her bölüm ve mobil düzen ayrı açıklamalı bloklarda.
-- `src/lib/content.ts`: ürün görsel manifesti, menü kategorileri, mevcut şube bilgileri ve Instagram bağlantısı.
-- `src/components/`: her ana bölüm ayrı bileşen. `product-visual.tsx` tüm waffle/kumpir görsellerini yönetir.
-- `src/components/story.tsx`: yalnızca bu bölümde kullanılan portre ve açıkça işaretli hikâye yer tutucusu.
-- `src/components/section-reveals.tsx`: bir defalık hafif görünme hareketleri. Scroll zaman çizelgesi, sabitlenmiş hero veya sürekli animasyon yoktur.
-- `public/fonts/`: Bricolage Grotesque ve DM Sans; OFL lisansları aynı klasörde.
-
-## Gerçek fotoğraflarla değiştirme
-
-1. İzinli fotoğrafları `public/images/brand/` içine ekleyin. Şeffaf ürün çekimleri mevcut afiş kompozisyonlarına doğrudan uyar; tek katmanlı görseller kullanılır, eşleşen animasyon kareleri gerekmez.
-2. `src/lib/content.ts` içindeki ürün `src` / `alt` alanlarını güncelleyin ve ilgili `placeholder` değerini `false` yapın.
-3. Bu ürünün konsept etiketi ve örnek waffle kabındaki tipografik marka otomatik kalkar. Yeni görsellerin kadrajını masaüstü ve mobilde kontrol edin.
-4. Galeri açıklamasını, onaylı menüyü ve gerçek hikâyeyi güncelleyin.
-
-`public/images/placeholders/` yalnızca temsili ürün varlıklarını içerir. Eski scroll animasyonunun kullanılmayan görselleri `placeholders/legacy/` altında korunmuştur. `public/images/brand/owner.webp` kullanıcı tarafından sağlanan gerçek portredir; bileşende her zaman CSS grayscale uygulanır. Kaynak fotoğraf `docs/source-assets/owner-source.png` içinde korunur. Portrede ekran görüntüsünün oynatıcı kontrolleri kadraj dışında tutulur.
-
-## İçerik durumu
-
-İşletme sahibi hakkında biyografi veya kuruluş hikâyesi uydurulmadı. Bayrampaşa iletişim bilgileri önceki projeden korundu; No:119 / 119A farkı, telefon ve saatler teyit bekliyor. Diğer şubeler eklenmedi. Tipografik Nurço kelime işareti tasarım konseptidir, sağlanan tabela logosunun birebir kopyası değildir.
-
-`npm run check:release` mevcut temsili ürünler nedeniyle bilerek başarısız olur. Bir deployment komutu değildir. `noindex` korunmuştur. Bu çalışma yerel projede uygulanmıştır; yayın yapılmadı.
-
-Görsel kaynakları ve üretim prompt'u: `docs/assets.md`. Kontrol sonuçları: `docs/verification.md`. Masaüstü ve mobil önizlemeler: `docs/screenshots/`.
+<p align="center">
+  <a href="https://www.linkedin.com/in/emirhanoktay"><img src="https://img.shields.io/badge/LinkedIn-C31F33?style=for-the-badge&logo=linkedin&logoColor=FFEB91"></a>
+  <a href="https://instagram.com/emirhannoktayy"><img src="https://img.shields.io/badge/Instagram-C31F33?style=for-the-badge&logo=instagram&logoColor=FFEB91"></a>
+  <a href="mailto:emirhanoktayy1@gmail.com"><img src="https://img.shields.io/badge/Gmail-C31F33?style=for-the-badge&logo=gmail&logoColor=FFEB91"></a>
+</p>
