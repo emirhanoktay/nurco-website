@@ -33,16 +33,19 @@
 ## Screenshots
 
 <p align="center">
-  <img src="docs/screenshots/home-desktop.jpg" width="100%">
+  <img src="docs/screenshots/readme-hero.jpg" width="48%">
+  <img src="docs/screenshots/readme-waffle.jpg" width="48%">
 </p>
-
 <p align="center">
-  <img src="docs/screenshots/composition-refined-waffle-1440.jpg" width="48%">
-  <img src="docs/screenshots/composition-refined-kumpir-1440.jpg" width="48%">
+  <img src="docs/screenshots/readme-kumpir.jpg" width="48%">
+  <img src="docs/screenshots/readme-menu.jpg" width="48%">
 </p>
-
 <p align="center">
-  <img src="docs/screenshots/home-mobile.jpg" width="200">
+  <img src="docs/screenshots/readme-story.jpg" width="48%">
+  <img src="docs/screenshots/readme-gallery.jpg" width="48%">
+</p>
+<p align="center">
+  <img src="docs/screenshots/readme-mobile.jpg" width="240">
 </p>
 
 ## How It Works
